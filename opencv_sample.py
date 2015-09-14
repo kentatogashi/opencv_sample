@@ -5,14 +5,13 @@ import sys
 import numpy as np
 
 # extract face part
-cascade_file = '/usr/local/opt/opencv/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml'
+#cascade_file = '/usr/local/opt/opencv/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml'
+cascade_file = '/usr/local/opt/opencv/share/OpenCV/haarcascades/haarcascade_mcs_mouth.xml'
 
 base_image_path = sys.argv[1]
-
 cascade         = cv2.CascadeClassifier(cascade_file)
 img = cv2.imread(base_image_path)
 grayscale_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
 faces = cascade.detectMultiScale(grayscale_image, 1.3, 5)
 
 for (x,y,w,h) in faces:
